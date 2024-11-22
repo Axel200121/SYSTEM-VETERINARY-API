@@ -1,32 +1,25 @@
-package api.veterinary.system.entities;
+package api.veterinary.system.dtos;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
-import java.util.List;
 
-@Entity
-@Table(name = "specialty")
-public class Specialty {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+public class SpecialtyDTO {
+
     private String id;
 
-    @Column(name = "name")
+    @NotBlank(message = "El nombre de la especialidad no puede estar vacio")
+    @NotNull(message = "El nombre de la especialidad no puede estar nulo")
     private String name;
 
+    @NotBlank(message = "La descripción no puede estar vacio")
+    @NotNull(message = "La descripción no puede estar nulo")
     private String description;
 
-    @CreationTimestamp
     private Date createdAt;
 
-    @UpdateTimestamp
     private Date updatedAt;
-
-    @OneToMany(mappedBy = "specialty")
-    private List<User> users;
 
     public String getId() {
         return id;
@@ -66,13 +59,5 @@ public class Specialty {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }
