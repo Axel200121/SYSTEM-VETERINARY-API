@@ -10,7 +10,8 @@ public enum Constants {
     REGISTER_DELETE("El registro se ha eliminado correctamente"),
     LIST_EMPTY("No tiene registros en almacenados"),
     LIST_NOT_EMPTY("Listado de registros"),
-    REGISTER_INFORMATION("Información recupera")
+    REGISTER_INFORMATION("Información recupera"),
+    LIST_PERMISSIONS_NOT_EXIST("No existen los permisos que quieres asignarle al Rol")
 
     ;
 
